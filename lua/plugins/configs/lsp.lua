@@ -31,7 +31,8 @@ M.config = function()
       },
     },
   })
->>>>>>> b1c09e0 (feat: add lua lsp config)
+
+  lspconfig.gopls.setup {}
 end
 
 return M

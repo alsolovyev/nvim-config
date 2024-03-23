@@ -14,6 +14,12 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.wrap = false
 
+-- Statusline
+vim.g.gf_disable_statusline = 1
+vim.o.laststatus = 3
+vim.o.showmode = false
+vim.o.statusline = "%!v:lua.require('features.statusline')()"
+
 -- Backup/Tmp Files
 vim.o.backup = false
 vim.o.swapfile = false
