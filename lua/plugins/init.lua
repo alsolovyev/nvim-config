@@ -13,6 +13,8 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   require 'plugins.configs.catppuccin',
   require 'plugins.configs.treesitter',
+  require 'plugins.configs.treesitter-context',
+  require 'plugins.configs.nvim-tree',
   require 'plugins.configs.autopairs',
   require 'plugins.configs.gitsigns',
   require 'plugins.configs.which-key',

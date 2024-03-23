@@ -22,6 +22,11 @@ local transparent = catppuccin.options.transparent_background and 'NONE' or colo
 -- Float window
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = colors.mantle })
 
+-- nvim-tree
+-- vim.api.nvim_set_hl(0, 'NvimTreeNormal',       {                   bg = colors.mantle            })
+vim.api.nvim_set_hl(0, 'NvimTreeRootFolder',   { fg = colors.base, bg = colors.blue, bold = true })
+vim.api.nvim_set_hl(0, 'NvimTreeWinSeparator', { fg = colors.base                                })
+
 -- Which-key
 vim.api.nvim_set_hl(0, 'WhichKey',          { fg = colors.blue     })
 vim.api.nvim_set_hl(0, 'WhichKeyDesc',      { fg = colors.red      })
