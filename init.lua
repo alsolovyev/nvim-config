@@ -1,3 +1,3 @@
 -- https://neovim.io/doc/user
 
-print('hi')
+require('options')
