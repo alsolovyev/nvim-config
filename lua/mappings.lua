@@ -40,6 +40,7 @@ vim.keymap.set('v', '<S-k>', ":m '<-2<CR>gv=gv", { desc = 'Move line up',   sile
 -- Misc
 vim.keymap.set('v', '<leader>s', ':sort<CR>', { desc = 'Sort lines in range', silent = true })
 vim.keymap.set('n', '<leader>rN', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Rename all occurrences of a word under the cursor' })
+vim.keymap.set('n', '<leader>rn', require 'features.rename', { desc = 'Rename all variable references under the cursor' })
 
 -- Nvim-tree
 vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { desc = 'Toggle explorer', silent = true })
