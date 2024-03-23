@@ -14,6 +14,7 @@ require('lazy').setup({
   require 'plugins.configs.catppuccin',
   require 'plugins.configs.mason',
   require 'plugins.configs.lsp',
+  require 'plugins.configs.nvim-cmp',
   require 'plugins.configs.treesitter',
   require 'plugins.configs.treesitter-context',
   require 'plugins.configs.nvim-tree',
