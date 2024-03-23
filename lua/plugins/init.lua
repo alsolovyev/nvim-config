@@ -10,4 +10,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Plugins
-require('lazy').setup({}, require 'plugins.configs.lazy')
+require('lazy').setup({
+  require 'plugins.configs.catppuccin',
+  require 'plugins.configs.which-key',
+}, require 'plugins.configs.lazy')
