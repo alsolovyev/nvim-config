@@ -5,5 +5,3 @@ require('autocmds')
 require('plugins')
 require('highlights')
 require('mappings')
-
-

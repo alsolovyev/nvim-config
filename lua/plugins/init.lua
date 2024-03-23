@@ -12,6 +12,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Plugins
 require('lazy').setup({
   require 'plugins.configs.catppuccin',
+  require 'plugins.configs.treesitter',
   require 'plugins.configs.autopairs',
   require 'plugins.configs.gitsigns',
   require 'plugins.configs.which-key',
