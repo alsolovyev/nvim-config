@@ -77,3 +77,9 @@ vim.opt.whichwrap:append '<>[]hl'
 
 -- Disable nvim intro
 vim.opt.shortmess:append 'sI'
+
+-- Add binaries installed by mason.nvim to path
+vim.env.PATH = vim.fn.stdpath 'data'
+  .. '/mason/bin'
+  .. (vim.fn.has 'win32' ~= 0 and ';' or ':')
+  .. vim.env.PATH
