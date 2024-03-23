@@ -33,6 +33,7 @@ M.config = function()
   })
 
   lspconfig.gopls.setup {}
+  lspconfig.ruff_lsp.setup {}
 end
 
 return M
