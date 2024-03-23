@@ -17,5 +17,6 @@ require('lazy').setup({
   require 'plugins.configs.nvim-tree',
   require 'plugins.configs.autopairs',
   require 'plugins.configs.gitsigns',
+  require 'plugins.configs.comment',
   require 'plugins.configs.which-key',
 }, require 'plugins.configs.lazy')
