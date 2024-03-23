@@ -34,6 +34,7 @@ M.config = function()
 
   lspconfig.gopls.setup {}
   lspconfig.ruff_lsp.setup {}
+  lspconfig.tsserver.setup {}
 end
 
 return M
