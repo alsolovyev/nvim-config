@@ -36,6 +36,7 @@ vim.api.nvim_set_hl(0, 'WhichKeyValue',     { fg = colors.green    })
 
 -- Statusline
 -- vim.api.nvim_set_hl(0, 'Statusline',               { fg = colors.blue,  bg = colors.crust })
+vim.api.nvim_set_hl(0, 'StatuslineFileName',       { fg = colors.overlay0                 })
 vim.api.nvim_set_hl(0, 'StatuslineLspError',       { fg = colors.red                      })
 vim.api.nvim_set_hl(0, 'StatuslineLspHints',       { fg = colors.green                    })
 vim.api.nvim_set_hl(0, 'StatuslineLspInfo',        { fg = colors.blue                     })

@@ -1,3 +1,7 @@
+-- File name
+local file_name = '%#StatuslineFileName#%f %m'
+
+
 -- LSP diagnostics
 local diagnostics_cached = ''
 
@@ -79,7 +83,7 @@ return function()
 
   local sections = {
     -- Left
-    -- mode(),
+    file_name,
     '%##',
 
     -- Center
@@ -89,9 +93,7 @@ return function()
 
     -- Right
     mode(),
-    -- location()
   }
 
   return table.concat(sections)
 end
-
