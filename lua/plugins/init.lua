@@ -18,6 +18,7 @@ require('lazy').setup({
   require 'plugins.configs.treesitter',
   require 'plugins.configs.treesitter-context',
   require 'plugins.configs.telescope',
+  require 'plugins.configs.todo-comments',
   require 'plugins.configs.nvim-tree',
   require 'plugins.configs.autopairs',
   require 'plugins.configs.gitsigns',

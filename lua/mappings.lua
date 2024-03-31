@@ -48,5 +48,8 @@ vim.keymap.set('n', '<leader>ff', ':Telescope find_files<CR>', { desc = '', sile
 vim.keymap.set('n', '<leader>fg', ':Telescope live_grep<CR>',  { desc = '', silent = true })
 vim.keymap.set('n', '<leader>fh', ':Telescope help_tags<CR>',  { desc = '', silent = true })
 
+-- ToDo Comments
+vim.keymap.set('n', '<leader>td', ':TodoTelescope<CR>', { desc = '', silent = true })
+
 -- Nvim-tree
 vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { desc = 'Toggle explorer', silent = true })
