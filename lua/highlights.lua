@@ -22,6 +22,10 @@ local transparent = catppuccin.options.transparent_background and 'NONE' or colo
 -- Float window
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = colors.mantle })
 
+-- telescropt
+vim.api.nvim_set_hl(0, 'TelescopeSelection',      { fg = colors.green                              })
+vim.api.nvim_set_hl(0, 'TelescopeSelectionCaret', {                    link = 'TelescopeSelection' })
+
 -- nvim-tree
 -- vim.api.nvim_set_hl(0, 'NvimTreeNormal',       {                   bg = colors.mantle            })
 vim.api.nvim_set_hl(0, 'NvimTreeRootFolder',   { fg = colors.base, bg = colors.blue, bold = true })

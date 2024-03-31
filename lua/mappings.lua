@@ -42,5 +42,11 @@ vim.keymap.set('v', '<leader>s', ':sort<CR>', { desc = 'Sort lines in range', si
 vim.keymap.set('n', '<leader>rN', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Rename all occurrences of a word under the cursor' })
 vim.keymap.set('n', '<leader>rn', require 'features.rename', { desc = 'Rename all variable references under the cursor' })
 
+-- Telescope
+vim.keymap.set('n', '<leader>fb', ':Telescope buffers<CR>',    { desc = '', silent = true })
+vim.keymap.set('n', '<leader>ff', ':Telescope find_files<CR>', { desc = '', silent = true })
+vim.keymap.set('n', '<leader>fg', ':Telescope live_grep<CR>',  { desc = '', silent = true })
+vim.keymap.set('n', '<leader>fh', ':Telescope help_tags<CR>',  { desc = '', silent = true })
+
 -- Nvim-tree
 vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { desc = 'Toggle explorer', silent = true })
