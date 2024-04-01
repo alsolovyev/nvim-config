@@ -53,3 +53,15 @@ vim.keymap.set('n', '<leader>td', ':TodoTelescope<CR>', { desc = '', silent = tr
 
 -- Nvim-tree
 vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { desc = 'Toggle explorer', silent = true })
+
+-- Gitsigns
+vim.keymap.set('n', '<leader>gl', ':Gitsigns toggle_linehl<CR>', { desc = 'Enable/disable gitsigns line highlights', silent = true })
+vim.keymap.set('n', '<leader>gp', ':Gitsigns preview_hunk<CR>',  { desc = 'Preview the hunk at the cursor position in a floating window', silent = true })
+vim.keymap.set('n', '<leader>gt', ':Gitsigns toggle_signs<CR>',  { desc = 'Enable/disable gitsigns', silent = true })
+vim.keymap.set({ 'n', 'v' }, '[g', ':Gitsigns prev_hunk<CR>',               { desc = 'Jump to the previous hunk in the current buffer', silent = true })
+vim.keymap.set({ 'n', 'v' }, ']g', ':Gitsigns next_hunk<CR>',               { desc = 'Jump to the next hunk in the current buffer', silent = true })
+vim.keymap.set({ 'n', 'v' }, '<leader>ga', ':Gitsigns stage_hunk<CR>',      { desc = 'Stage the hunk at the cursor position, or all lines in the given range', silent = true })
+vim.keymap.set({ 'n', 'v' }, '<leader>gb', ':Gitsigns blame_line<CR>',      { desc = 'Run git blame on the current line and show the results in a floating window', silent = true })
+-- vim.keymap.set({ 'n', 'v' }, '<leader>gb', ':Gitsigns toggle_current_line_blame<CR>', { desc = 'Adds an unobtrusive and customisable blame annotation at the end of the current line',         silent = true })
+vim.keymap.set({ 'n', 'v' }, '<leader>gr', ':Gitsigns reset_hunk<CR>',      { desc = 'Reset the lines of the hunk at the cursor position, or all lines in the given range', silent = true })
+vim.keymap.set({ 'n', 'v' }, '<leader>gu', ':Gitsigns undo_stage_hunk<CR>', { desc = 'Undo the last call of stage_hunk', silent = true })
