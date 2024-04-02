@@ -56,3 +56,6 @@ vim.api.nvim_set_hl(0, 'StatuslineCommandMode',    { fg = colors.base,  bg = col
 vim.api.nvim_set_hl(0, 'StatuslineCommandModeSep', { fg = colors.red,   bg = colors.base  })
 vim.api.nvim_set_hl(0, 'StatuslineReplaceMode',    { fg = colors.base,  bg = colors.red   })
 vim.api.nvim_set_hl(0, 'StatuslineReplaceModeSep', { fg = colors.red,   bg = colors.base  })
+
+-- TreesitterContext
+vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { underline = false })
