@@ -79,7 +79,7 @@ end
 
 
 return function()
-  local bufnr = vim.api.nvim_win_get_buf(vim.g.statusline_winid)
+  -- local bufnr = vim.api.nvim_win_get_buf(vim.g.statusline_winid)
 
   local sections = {
     -- Left
