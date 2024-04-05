@@ -21,6 +21,10 @@ local transparent = catppuccin.options.transparent_background and 'NONE' or colo
 
 -- Float window
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = colors.mantle })
+vim.api.nvim_set_hl(0, 'FloatBorder', { bg = colors.mantle, fg = colors.blue })
+
+-- Rename
+vim.api.nvim_set_hl(0, 'CustomRenameTitle', { bg = colors.mantle })
 
 -- telescropt
 vim.api.nvim_set_hl(0, 'TelescopeSelection',      { fg = colors.green                              })
