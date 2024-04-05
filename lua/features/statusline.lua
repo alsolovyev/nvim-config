@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd('DiagnosticChanged', {
     end
 
     if diagnostics[4] > 0 then
-      result = result .. '%#StatuslineLspInfo#󰋼 ' .. diagnostics[3] .. ' '
+      result = result .. '%#StatuslineLspInfo#󰋼 ' .. diagnostics[4] .. ' '
     end
 
     diagnostics_cached = result
@@ -87,7 +87,7 @@ return function()
     '%##',
 
     -- Center
-    '%=          ',
+    '%=',
     diagnostics_cached,
     '%=',
 
