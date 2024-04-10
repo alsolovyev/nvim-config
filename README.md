@@ -17,7 +17,7 @@
 
 ## Features
 
-- catppuccin theme
+- blazingly fast
 - custom rename float window
 - open links without netrw
 - custom statusline

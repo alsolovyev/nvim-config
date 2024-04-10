@@ -88,3 +88,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set({ 'n', 'v' }, '<leader>cf', vim.lsp.buf.format,      { desc = 'Format code', buffer = ev.buf, silent = true })
   end,
 })
+
+-- Open URL
+vim.keymap.set('n', 'gx', require 'features.open-url', { desc = 'Open URL', silent = true })
