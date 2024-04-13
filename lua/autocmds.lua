@@ -7,6 +7,18 @@ vim.api.nvim_create_autocmd('VimLeave', {
   command = [[set guicursor=a:hor25]],
 })
 
+-- Automatically organize imports before writing buffer contents for Go files
+vim.api.nvim_create_autocmd('BufWritePre', {
+  desc = 'Organize imports before saving buffer (Go files)',
+  group = vim.api.nvim_create_augroup('OrganizeImports', { clear = true }),
+  pattern = '*.go',
+  callback = function()
+    if vim.bo.modified then
+      vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
+    end
+  end
+})
+
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
