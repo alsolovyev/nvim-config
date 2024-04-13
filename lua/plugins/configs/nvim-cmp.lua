@@ -2,7 +2,11 @@
 local M = { 'hrsh7th/nvim-cmp' }
 
 M.event = 'InsertEnter'
-M.dependencies = { 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path' }
+M.dependencies = {
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-path',
+}
 
 M.config = function()
   local cmp = require 'cmp'
@@ -12,17 +16,17 @@ M.config = function()
       completeopt = 'menu,menuone,preview,noselect'
     },
     mapping = cmp.mapping.preset.insert({
+      ['<C-CR>'   ] = cmp.mapping.confirm({ select = true }),
+      ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-b>'    ] = cmp.mapping.scroll_docs(-4),
       ['<C-e>'    ] = cmp.mapping.abort(),
       ['<C-f>'    ] = cmp.mapping.scroll_docs(4),
       ['<C-j>'    ] = cmp.mapping.select_next_item(),
       ['<C-k>'    ] = cmp.mapping.select_prev_item(),
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<C-CR>'     ] = cmp.mapping.confirm({ select = true }),
     }),
     sources = cmp.config.sources({
-      { name = 'buffer'   },
-      { name = 'path'     },
+      { name = 'buffer' },
+      { name = 'path'   },
     }),
     window = {
       completion = cmp.config.window.bordered(),
@@ -30,9 +34,17 @@ M.config = function()
     },
   })
 
-  cmp.setup.filetype({ 'lua' }, {
+  cmp.setup.filetype({
+    'css',
+    'go',
+    'html',
+    'javascript',
+    'lua',
+    'markdown',
+    'typescript',
+  }, {
     sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
+      { name = 'nvim_lsp', max_item_count = 10 }
     }),
   })
 end
