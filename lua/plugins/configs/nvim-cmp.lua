@@ -12,9 +12,6 @@ M.config = function()
   local cmp = require 'cmp'
 
   cmp.setup({
-    completion = {
-      completeopt = 'menu,menuone,preview,noselect'
-    },
     mapping = cmp.mapping.preset.insert({
       ['<C-CR>'   ] = cmp.mapping.confirm({ select = true }),
       ['<C-Space>'] = cmp.mapping.complete(),
@@ -29,8 +26,14 @@ M.config = function()
       { name = 'path'   },
     }),
     window = {
-      completion = cmp.config.window.bordered(),
-      documentation = cmp.config.window.bordered(),
+      completion = {
+        border = "rounded",
+        winhighlight = "Normal:CmpNormal",
+      },
+      documentation = {
+        border = "rounded",
+        winhighlight = "Normal:CmpNormal",
+      }
     },
   })
 
