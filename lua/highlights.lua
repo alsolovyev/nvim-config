@@ -24,11 +24,12 @@ vim.api.nvim_set_hl(0, 'NormalFloat', { bg = colors.mantle })
 vim.api.nvim_set_hl(0, 'FloatBorder', { bg = colors.mantle, fg = colors.blue })
 
 -- Rename
-vim.api.nvim_set_hl(0, 'CustomRenameTitle', { bg = colors.mantle })
+vim.api.nvim_set_hl(0, 'CustomRenameTitle', { link = 'NormalFloat' })
 
--- telescropt
-vim.api.nvim_set_hl(0, 'TelescopeSelection',      { fg = colors.green                              })
-vim.api.nvim_set_hl(0, 'TelescopeSelectionCaret', {                    link = 'TelescopeSelection' })
+-- Telescope
+vim.api.nvim_set_hl(0, 'TelescopeNormal',         {                   link = 'NormalFloat'        })
+vim.api.nvim_set_hl(0, 'TelescopeSelection',      { fg = colors.green                             })
+vim.api.nvim_set_hl(0, 'TelescopeSelectionCaret', {                   link = 'TelescopeSelection' })
 
 -- nvim-tree
 -- vim.api.nvim_set_hl(0, 'NvimTreeNormal',       {                   bg = colors.mantle            })
