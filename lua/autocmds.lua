@@ -19,6 +19,32 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   end
 })
 
+-- Automatically trigger code formatting before writing buffer contents
+vim.api.nvim_create_autocmd('BufWritePre', {
+  desc = 'Automatically format code before saving buffer',
+  group = vim.api.nvim_create_augroup('CodeFormatting', { clear = true }),
+  callback = function()
+    -- Perform code formatting only for specific buffers
+    if not vim.bo.modified or not vim.bo.modifiable or vim.bo.binary then
+      return
+    end
+
+    -- Format code using LSP
+    for _, client in pairs(vim.lsp.buf_get_clients()) do
+      if client.supports_method('textDocument/formatting') then
+        vim.lsp.buf.format { async = false }
+      end
+    end
+
+    local view_state = vim.fn.winsaveview()
+
+    vim.cmd [[silent! %s#\($\n\s*\)\+\%$##]] -- Trim the end lines
+    vim.cmd [[silent! %s/\s\+$//e]]          -- Trim trailing whitespaces
+
+    vim.fn.winrestview(view_state)
+  end
+})
+
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
