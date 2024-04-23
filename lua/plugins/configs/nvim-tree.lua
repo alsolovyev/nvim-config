@@ -9,6 +9,9 @@ M.opts = {
   filesystem_watchers = {
     enable = false
   },
+  view = {
+    width = 20,
+  },
   renderer = {
     special_files = {},
     highlight_git = true,
