@@ -25,13 +25,13 @@ M.opts = {
       git_placement = 'signcolumn',
       glyphs = {
         git = {
-          unstaged = "",
-          staged = "",
-          unmerged = "",
-          renamed = "➜",
-          untracked = "",
           deleted = "",
           ignored = "◌",
+          renamed = "➜",
+          staged = "",
+          unmerged = "",
+          unstaged = "",
+          untracked = "★",
         },
       },
     },
