@@ -40,6 +40,7 @@ vim.keymap.set('v', '<S-k>', ":m '<-2<CR>gv=gv", { desc = 'Move line up',   sile
 -- Misc
 vim.keymap.set('v', '<leader>s', ':sort<CR>', { desc = 'Sort lines in range', silent = true })
 vim.keymap.set('n', '<leader>rN', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Rename all occurrences of a word under the cursor' })
+vim.keymap.set({ 'n', 'v' }, '<leader>cf', require 'features.format-buf', { desc = '' })
 
 -- Telescope
 vim.keymap.set('n', '<leader>fb', ':Telescope buffers<CR>',    { desc = '', silent = true })
@@ -84,7 +85,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<leader>rn', require 'features.rename',      { desc = 'Rename all variable references under the cursor', buffer = ev.buf, silent = true })
 
     vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, { desc = 'Open code actions', buffer = ev.buf, silent = true })
-    vim.keymap.set({ 'n', 'v' }, '<leader>cf', vim.lsp.buf.format,      { desc = 'Format code', buffer = ev.buf, silent = true })
   end,
 })
 
