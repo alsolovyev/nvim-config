@@ -1,3 +1,4 @@
+-- Opens a float window for user input to rename all references to the symbol under the cursor
 return function()
   local current_name = vim.fn.expand '<cword>'
   if current_name == '' then
