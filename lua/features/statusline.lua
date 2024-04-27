@@ -6,32 +6,33 @@ local file_name = '%#StatuslineFileName#%f %m'
 local diagnostics_cached = ''
 
 -- https://neovim.io/doc/user/diagnostic.html#DiagnosticChanged
-vim.api.nvim_create_autocmd('DiagnosticChanged', {
-  desc = 'Update diagnostics cache for the status line',
+vim.api.nvim_create_autocmd({ 'BufEnter', 'DiagnosticChanged' }, {
+  desc = 'Update diagnostics for the status line',
   group = vim.api.nvim_create_augroup('StatuslineDiagnostics', { clear = true }),
   callback = function(args)
-    local diagnostics = { 0, 0, 0, 0 } -- error, warnings, info, hint
+    local diagnostics = args.data and args.data.diagnostics or vim.diagnostic.get(args.buf)
+    if next(diagnostics) == nil then
+      diagnostics_cached = ''
+      return
+    end
 
-    for _, diagnostic in ipairs(args.data.diagnostics) do
-      diagnostics[diagnostic.severity] = diagnostics[diagnostic.severity] + 1
+    local diagnostics_counts = { 0, 0, 0, 0 } -- error, warnings, info, hint
+    for _, diagnostic in ipairs(diagnostics) do
+      diagnostics_counts[diagnostic.severity] = diagnostics_counts[diagnostic.severity] + 1
     end
 
     local result = ''
+    local highlight_groups = {
+      '%#StatuslineLspError# ',
+      '%#StatuslineLspWarning# ',
+      '%#STAtuslineLspHints#󰛩 ',
+      '%#StatuslineLspInfo#󰋼 ',
+    }
 
-    if diagnostics[1] > 0 then
-      result = result .. '%#StatuslineLspError# ' .. diagnostics[1] .. ' '
-    end
-
-    if diagnostics[2] > 0 then
-      result = result .. '%#StatuslineLspWarning# ' .. diagnostics[2] .. ' '
-    end
-
-    if diagnostics[3] > 0 then
-      result = result .. '%#STAtuslineLspHints#󰛩 ' .. diagnostics[3] .. ' '
-    end
-
-    if diagnostics[4] > 0 then
-      result = result .. '%#StatuslineLspInfo#󰋼 ' .. diagnostics[4] .. ' '
+    for i, count in ipairs(diagnostics_counts) do
+      if count > 0 then
+        result = result .. highlight_groups[i] .. count .. ' '
+      end
     end
 
     diagnostics_cached = result
@@ -55,13 +56,13 @@ vim.api.nvim_create_autocmd('DiagnosticChanged', {
 --  - squer left: █, right: █
 --
 local modes = {
-  [''] = { 'V-BLOCK ', 'StatuslineVisualMode'  },
-  ['c']  = { 'COMMAND ', 'StatuslineCommandMode' },
-  ['i']  = { 'INSERT ',  'StatuslineInsertMode'  },
-  ['n']  = { 'NORMAL ',  'StatuslineNormalMode'  },
-  ['R']  = { 'REPLACE ', 'StatuslineReplaceMode' },
-  ['V']  = { 'V-LINE ',  'StatuslineVisualMode'  },
-  ['v']  = { 'VISUAL ',  'StatuslineVisualMode'  },
+  [''] = { 'V-BLOCK ', 'StatuslineVisualMode' },
+  ['c'] = { 'COMMAND ', 'StatuslineCommandMode' },
+  ['i'] = { 'INSERT ', 'StatuslineInsertMode' },
+  ['n'] = { 'NORMAL ', 'StatuslineNormalMode' },
+  ['R'] = { 'REPLACE ', 'StatuslineReplaceMode' },
+  ['V'] = { 'V-LINE ', 'StatuslineVisualMode' },
+  ['v'] = { 'VISUAL ', 'StatuslineVisualMode' },
 }
 
 local function mode()
