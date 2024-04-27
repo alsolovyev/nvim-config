@@ -1,4 +1,9 @@
 return function()
+  local current_name = vim.fn.expand '<cword>'
+  if current_name == '' then
+    return vim.notify('Nothing to rename')
+  end
+
   vim.lsp.buf.document_highlight()
 
   local bufnr = vim.api.nvim_create_buf(false, true)
@@ -23,7 +28,6 @@ return function()
     vim.cmd [[stopinsert]]
     vim.cmd [[normal! l]]
 
-    local current_name = vim.fn.expand '<cword>'
     if new_name and #new_name > 0 and not (new_name == current_name) then
       vim.lsp.buf.rename(new_name)
     end
