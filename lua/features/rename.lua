@@ -21,10 +21,23 @@ return function()
 
   vim.api.nvim_buf_set_lines(bufnr, 0, 1, true, { current_name })
 
+  -- Create an autocmd to close the renaming window when leaving the buffer.
+  local leave_autocmd_id = vim.api.nvim_create_autocmd('BufLeave', {
+    desc = 'Close the rename window',
+    group = vim.api.nvim_create_augroup('CloseRenameWindow', { clear = true }),
+    buffer = bufnr,
+    once = true,
+    callback = function()
+      vim.api.nvim_win_close(win_id, true)
+      vim.lsp.buf.clear_references()
+    end
+  })
+
   -- Set key mappings for handling user input in the renaming window.
   vim.keymap.set({ 'i', 'n' }, '<CR>', function()
     local new_name = vim.trim(vim.api.nvim_get_current_line())
 
+    vim.api.nvim_del_autocmd(leave_autocmd_id)
     vim.api.nvim_win_close(win_id, true)
 
     vim.cmd [[stopinsert]]
