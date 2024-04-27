@@ -19,6 +19,8 @@ return function()
     title_pos = 'center',
   })
 
+  vim.api.nvim_buf_set_lines(bufnr, 0, 1, true, { current_name })
+
   --
   vim.keymap.set({ 'i', 'n' }, '<CR>', function()
     local new_name = vim.trim(vim.api.nvim_get_current_line())
