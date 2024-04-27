@@ -21,7 +21,7 @@ return function()
 
   vim.api.nvim_buf_set_lines(bufnr, 0, 1, true, { current_name })
 
-  --
+  -- Set key mappings for handling user input in the renaming window.
   vim.keymap.set({ 'i', 'n' }, '<CR>', function()
     local new_name = vim.trim(vim.api.nvim_get_current_line())
 
@@ -37,7 +37,7 @@ return function()
     vim.lsp.buf.clear_references()
   end, { buffer = bufnr, silent = true })
 
-  --
+  -- Set a key mapping to cancel the renaming operation.
   vim.keymap.set('n', '<Esc>', function()
     vim.api.nvim_win_close(win_id, true)
     vim.lsp.buf.clear_references()
