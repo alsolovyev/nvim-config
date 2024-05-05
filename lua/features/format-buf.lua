@@ -19,7 +19,7 @@ return function()
     if filetype == vim.bo.filetype then
       local view_state = vim.fn.winsaveview()
 
-      vim.cmd [[%!prettier --find-config-path --stdin-filepath %]]
+      vim.cmd [[silent %!prettier --find-config-path --stdin-filepath %]]
       vim.notify('Formatted using Prettier')
 
       vim.fn.winrestview(view_state)
