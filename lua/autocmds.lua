@@ -23,7 +23,13 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 vim.api.nvim_create_autocmd('BufWritePre', {
   desc = 'Automatically format code before saving buffer',
   group = vim.api.nvim_create_augroup('CodeFormatting', { clear = true }),
-  callback = require 'features.format-buf'
+  callback = function()
+    if not vim.bo.modified or not vim.bo.modifiable or vim.bo.binary then
+      return
+    end
+
+    vim.lsp.buf.format()
+  end
 })
 
 -- Highlight when yanking (copying) text
