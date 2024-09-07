@@ -5,7 +5,7 @@
 --
 
 -- Common
-vim.opt.colorcolumn = '80'
+vim.opt.colorcolumn = '100'
 -- vim.o.inccommand = 'split'
 -- vim.o.list = true
 vim.o.listchars = 'eol:↲,extends:»,nbsp:␣,precedes:«,space:·,tab:→ ,trail:·'
