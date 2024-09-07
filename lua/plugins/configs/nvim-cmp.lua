@@ -14,6 +14,7 @@ M.config = function()
   cmp.setup({
     mapping = cmp.mapping.preset.insert({
       ['<C-CR>'   ] = cmp.mapping.confirm({ select = true }),
+      ['<C-l>'    ] = cmp.mapping.confirm({ select = true }), -- for tmux
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-b>'    ] = cmp.mapping.scroll_docs(-4),
       ['<C-e>'    ] = cmp.mapping.abort(),
