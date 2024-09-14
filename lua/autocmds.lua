@@ -26,7 +26,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = '*.go',
   callback = function()
     local params = vim.lsp.util.make_range_params()
-    params.context = {only = {"source.organizeImports"}}
+    params.context = { only = { "source.organizeImports" } }
 
     local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
     for cid, res in pairs(result or {}) do
@@ -71,7 +71,7 @@ vim.api.nvim_create_autocmd({ 'UIEnter', 'BufReadPost', 'BufNewFile' }, {
         if vim.g.editorconfig then
           require('editorconfig').config(args.buf)
         end
-      end, 0)
+      end)
     end
   end,
 })
