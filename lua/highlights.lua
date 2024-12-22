@@ -26,10 +26,6 @@ vim.api.nvim_set_hl(0, 'FloatBorder', { bg = colors.mantle, fg = colors.blue })
 -- Rename
 vim.api.nvim_set_hl(0, 'CustomRenameTitle', { link = 'NormalFloat' })
 
--- Cmp
-vim.api.nvim_set_hl(0, 'CmpNormal',    { link = 'NormalFloat' })
-vim.api.nvim_set_hl(0, 'CmpDocNormal', { link = 'NormalFloat' })
-
 -- Telescope
 vim.api.nvim_set_hl(0, 'TelescopeNormal',         {                   link = 'NormalFloat'        })
 vim.api.nvim_set_hl(0, 'TelescopeSelection',      { fg = colors.green                             })
