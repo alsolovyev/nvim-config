@@ -24,7 +24,8 @@ M.opts = {
   },
   sources = {
     default = { 'lsp', 'path', 'buffer' },
-  }
+  },
+  signature = { enabled = true }
 }
 
 return M
