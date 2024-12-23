@@ -23,17 +23,20 @@ local transparent = catppuccin.options.transparent_background and 'NONE' or colo
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = colors.mantle })
 vim.api.nvim_set_hl(0, 'FloatBorder', { bg = colors.mantle, fg = colors.blue })
 
+-- CMP
+vim.api.nvim_set_hl(0, 'BlinkCmpDocBorder',           { link = 'FloatBorder'        })
+vim.api.nvim_set_hl(0, 'BlinkCmpMenuBorder',          { link = 'FloatBorder'        })
+vim.api.nvim_set_hl(0, 'BlinkCmpMenuSelection',       { link = 'TelescopeSelection' })
+vim.api.nvim_set_hl(0, 'BlinkCmpSignatureHelpBorder', { link = 'FloatBorder'        })
+vim.api.nvim_set_hl(0, 'BlinkCmpScrollBarThumb',      { bg = colors.blue            })
+
 -- Rename
 vim.api.nvim_set_hl(0, 'CustomRenameTitle', { link = 'NormalFloat' })
 
--- Cmp
-vim.api.nvim_set_hl(0, 'CmpNormal',    { link = 'NormalFloat' })
-vim.api.nvim_set_hl(0, 'CmpDocNormal', { link = 'NormalFloat' })
-
 -- Telescope
-vim.api.nvim_set_hl(0, 'TelescopeNormal',         {                   link = 'NormalFloat'        })
-vim.api.nvim_set_hl(0, 'TelescopeSelection',      { fg = colors.green                             })
-vim.api.nvim_set_hl(0, 'TelescopeSelectionCaret', {                   link = 'TelescopeSelection' })
+vim.api.nvim_set_hl(0, 'TelescopeNormal',         { link = 'NormalFloat'        })
+vim.api.nvim_set_hl(0, 'TelescopeSelectionCaret', { link = 'TelescopeSelection' })
+vim.api.nvim_set_hl(0, 'TelescopeSelection',      { fg = colors.green           })
 
 -- nvim-tree
 -- vim.api.nvim_set_hl(0, 'NvimTreeNormal',       {                   bg = colors.mantle            })
