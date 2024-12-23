@@ -25,4 +25,5 @@ require('lazy').setup({
   require 'plugins.configs.gitsigns',
   require 'plugins.configs.comment',
   require 'plugins.configs.which-key',
+  require 'plugins.configs.autotag',
 }, require 'plugins.configs.lazy')
