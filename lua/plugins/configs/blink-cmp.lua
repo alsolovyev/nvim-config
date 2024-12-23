@@ -5,6 +5,10 @@ M.event = 'InsertEnter'
 M.version = '*'
 
 M.opts = {
+  completion = {
+    menu = { border = 'rounded' },
+    documentation = { window = { border = 'rounded' } },
+  },
   keymap = {
     preset        = 'none',
     ['<C-CR>']    = { 'accept', 'fallback' },
