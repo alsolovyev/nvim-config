@@ -28,6 +28,7 @@ vim.api.nvim_set_hl(0, 'BlinkCmpDocBorder',           { link = 'FloatBorder'    
 vim.api.nvim_set_hl(0, 'BlinkCmpMenuBorder',          { link = 'FloatBorder'        })
 vim.api.nvim_set_hl(0, 'BlinkCmpMenuSelection',       { link = 'TelescopeSelection' })
 vim.api.nvim_set_hl(0, 'BlinkCmpSignatureHelpBorder', { link = 'FloatBorder'        })
+vim.api.nvim_set_hl(0, 'BlinkCmpDocSeparator',        { fg = colors.surface0        })
 vim.api.nvim_set_hl(0, 'BlinkCmpScrollBarThumb',      { bg = colors.blue            })
 
 -- Rename
