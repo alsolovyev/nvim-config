@@ -6,7 +6,10 @@ M.version = '*'
 
 M.opts = {
   completion = {
-    menu = { border = 'rounded' },
+    menu = {
+      border = 'rounded',
+      draw = { columns = { { 'label' } } }
+    },
     documentation = { window = { border = 'rounded' } },
   },
   keymap = {
