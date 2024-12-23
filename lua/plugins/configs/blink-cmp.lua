@@ -25,7 +25,10 @@ M.opts = {
   sources = {
     default = { 'lsp', 'path', 'buffer' },
   },
-  signature = { enabled = true }
+  signature = {
+    enabled = true,
+    window = { border = 'rounded' },
+  }
 }
 
 return M

@@ -24,10 +24,11 @@ vim.api.nvim_set_hl(0, 'NormalFloat', { bg = colors.mantle })
 vim.api.nvim_set_hl(0, 'FloatBorder', { bg = colors.mantle, fg = colors.blue })
 
 -- CMP
-vim.api.nvim_set_hl(0, 'BlinkCmpDocBorder',      { link = 'FloatBorder'        })
-vim.api.nvim_set_hl(0, 'BlinkCmpMenuBorder',     { link = 'FloatBorder'        })
-vim.api.nvim_set_hl(0, 'BlinkCmpMenuSelection',  { link = 'TelescopeSelection' })
-vim.api.nvim_set_hl(0, 'BlinkCmpScrollBarThumb', { bg = colors.blue            })
+vim.api.nvim_set_hl(0, 'BlinkCmpDocBorder',           { link = 'FloatBorder'        })
+vim.api.nvim_set_hl(0, 'BlinkCmpMenuBorder',          { link = 'FloatBorder'        })
+vim.api.nvim_set_hl(0, 'BlinkCmpMenuSelection',       { link = 'TelescopeSelection' })
+vim.api.nvim_set_hl(0, 'BlinkCmpSignatureHelpBorder', { link = 'FloatBorder'        })
+vim.api.nvim_set_hl(0, 'BlinkCmpScrollBarThumb',      { bg = colors.blue            })
 
 -- Rename
 vim.api.nvim_set_hl(0, 'CustomRenameTitle', { link = 'NormalFloat' })
