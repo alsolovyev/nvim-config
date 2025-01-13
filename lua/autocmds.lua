@@ -7,6 +7,16 @@ vim.api.nvim_create_autocmd('VimLeave', {
   command = [[set guicursor=a:hor25]],
 })
 
+-- Configures terminal buffers
+vim.api.nvim_create_autocmd('TermOpen', {
+  desc = 'Disable line numbers in terminal windows',
+  group = vim.api.nvim_create_augroup('TerminalSettings', { clear = true }),
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+  end
+})
+
 -- Automatically trigger code formatting before writing buffer contents
 vim.api.nvim_create_autocmd('BufWritePre', {
   desc = 'Automatically format code before saving buffer',
