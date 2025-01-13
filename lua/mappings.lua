@@ -44,6 +44,9 @@ vim.keymap.set('v', '<S-k>', ":m '<-2<CR>gv=gv", { desc = 'Move line up',   sile
 vim.keymap.set('v', '<leader>s', ':sort<CR>', { desc = 'Sort lines in range', silent = true })
 vim.keymap.set('n', '<leader>rN', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Rename all occurrences of a word under the cursor' })
 
+-- Terminal
+vim.keymap.set({ 'n', 't' }, '<leader>ft', '<cmd>Terminal Toggle<CR>', { desc = 'Toggle terminal', silent = true })
+
 -- Telescope
 vim.keymap.set('n', '<leader>fb', ':Telescope buffers<CR>',    { desc = '', silent = true })
 vim.keymap.set('n', '<leader>ff', ':Telescope find_files<CR>', { desc = '', silent = true })
