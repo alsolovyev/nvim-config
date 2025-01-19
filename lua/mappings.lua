@@ -1,6 +1,5 @@
 -- https://neovim.io/doc/user/lua#vim.keymap.set()
 -- local set = vim.keymap.set
-local close_buf = require 'features.close-buf'
 
 -- Remap
 -- vim.g.mapleader = '\'
@@ -16,12 +15,8 @@ vim.keymap.set('n', 'x',     '"_x',     { desc = 'Delete character without yanki
 vim.keymap.set('n', '<S-d>', '"_<S-d>', { desc = 'Delete until end of line without yanking' })
 
 -- Buffers
-vim.keymap.set('n', '<leader>Q', function()
-  close_buf(true)
-end,                                        { desc = 'Close buffer without saving' })
-vim.keymap.set('n', '<leader>q', close_buf, { desc = 'Close buffer' })
-vim.keymap.set('n', '[b', ':bp<CR>',        { desc = 'Go to prev buffer in buffer list' })
-vim.keymap.set('n', ']b', ':bn<CR>',        { desc = 'Go to next buffer in buffer list' })
+vim.keymap.set('n', '[b', ':bp<CR>', { desc = 'Go to prev buffer in buffer list' })
+vim.keymap.set('n', ']b', ':bn<CR>', { desc = 'Go to next buffer in buffer list' })
 
 -- Resize window
 vim.keymap.set('n', '=', ':vertical   resize +5<CR>', { desc = 'Increase current window width  by 5', silent = true })
