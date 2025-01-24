@@ -28,6 +28,8 @@ local function open()
   if vim.bo[buf].buftype ~= 'terminal' then
     vim.cmd.terminal()
   end
+
+  vim.cmd('startinsert')
 end
 
 --- Closes the floating terminal window and deletes its buffer
