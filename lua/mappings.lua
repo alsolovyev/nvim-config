@@ -15,8 +15,9 @@ vim.keymap.set('n', 'x',     '"_x',     { desc = 'Delete character without yanki
 vim.keymap.set('n', '<S-d>', '"_<S-d>', { desc = 'Delete until end of line without yanking' })
 
 -- Buffers
-vim.keymap.set('n', '[b', ':bp<CR>', { desc = 'Go to prev buffer in buffer list' })
-vim.keymap.set('n', ']b', ':bn<CR>', { desc = 'Go to next buffer in buffer list' })
+vim.keymap.set({ 'n', 't' }, '<leader>q', '<CMD>Buffer close<CR>', { desc = 'Close buffer' })
+vim.keymap.set('n', '[b', '<CMD>Buffer prev<CR>', { desc = 'Go to prev buffer in buffer list' })
+vim.keymap.set('n', ']b', '<CMD>Buffer next<CR>', { desc = 'Go to next buffer in buffer list' })
 
 -- Resize window
 vim.keymap.set('n', '=', ':vertical   resize +5<CR>', { desc = 'Increase current window width  by 5', silent = true })
