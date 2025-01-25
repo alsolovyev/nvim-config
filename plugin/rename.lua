@@ -36,6 +36,7 @@ vim.api.nvim_create_user_command('Rename', function(_)
     buffer = bufnr,
     callback = function()
       vim.api.nvim_win_close(win_id, true)
+      vim.api.nvim_buf_delete(bufnr, { force = true })
     end
   })
 
