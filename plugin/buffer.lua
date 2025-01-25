@@ -54,8 +54,9 @@ end
 -- Closes the current buffer
 local function close_buffer()
   local current_buffer = vim.api.nvim_get_current_buf()
+  local buffer_type = vim.api.nvim_get_option_value('buftype', { buf = current_buffer })
 
-  if vim.api.nvim_get_option_value('buftype', { buf = current_buffer }) == 'terminal' then
+  if buffer_type == 'terminal' or buffer_type == 'prompt' then
     vim.api.nvim_win_close(vim.api.nvim_get_current_win(), true)
     return
   end
