@@ -66,8 +66,7 @@ local function close_buffer()
       vim.api.nvim_set_current_buf(vim.api.nvim_create_buf(false, true))
     end
 
-    require('nvim-tree.api').tree.toggle({ focus = false })
-    -- require('nvim-tree.api').tree.close()
+    require('nvim-tree.api').tree.close()
     return
   end
 
