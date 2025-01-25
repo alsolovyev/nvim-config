@@ -61,7 +61,7 @@ local function close_buffer()
     return
   end
 
-  if vim.api.nvim_buf_get_name(current_buffer):match('NvimTree_') then
+  if vim.api.nvim_get_option_value('filetype', { buf = current_buffer }) == 'NvimTree' then
     if #get_file_buffers() == 0 then
       vim.api.nvim_set_current_buf(vim.api.nvim_create_buf(false, true))
     end
