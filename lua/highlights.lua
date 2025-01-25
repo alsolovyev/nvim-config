@@ -31,9 +31,6 @@ vim.api.nvim_set_hl(0, 'BlinkCmpSignatureHelpBorder', { link = 'FloatBorder'    
 vim.api.nvim_set_hl(0, 'BlinkCmpDocSeparator',        { fg = colors.surface0        })
 vim.api.nvim_set_hl(0, 'BlinkCmpScrollBarThumb',      { bg = colors.blue            })
 
--- Rename
-vim.api.nvim_set_hl(0, 'CustomRenameTitle', { link = 'NormalFloat' })
-
 -- Telescope
 vim.api.nvim_set_hl(0, 'TelescopeNormal',         { link = 'NormalFloat'        })
 vim.api.nvim_set_hl(0, 'TelescopeSelectionCaret', { link = 'TelescopeSelection' })

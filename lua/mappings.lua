@@ -83,7 +83,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<leader>Hr', vim.lsp.buf.clear_references,   { desc = 'Removes document highlights from current buffer', buffer = ev.buf, silent = true })
     vim.keymap.set('n', '<leader>oD', vim.diagnostic.setloclist,      { desc = 'Add buffer diagnostics to the location list', buffer = ev.buf, silent = true })
     vim.keymap.set('n', '<leader>od', vim.diagnostic.open_float,      { desc = 'Open diagnostic in a float window', buffer = ev.buf, silent = true })
-    vim.keymap.set('n', '<leader>rn', require 'features.rename',      { desc = 'Rename all variable references under the cursor', buffer = ev.buf, silent = true })
+    vim.keymap.set('n', '<leader>rn', '<CMD>Rename<CR>',              { desc = 'Rename all variable references under the cursor', buffer = ev.buf, silent = true })
 
     vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, { desc = 'Open code actions', buffer = ev.buf, silent = true })
     vim.keymap.set({ 'n', 'v' }, '<leader>cf', vim.lsp.buf.format,      { desc = 'Format a buffer using the attached LSP', buffer = ev.buf, silent = true })
