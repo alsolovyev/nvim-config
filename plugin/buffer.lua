@@ -62,22 +62,14 @@ local function close_buffer()
   end
 
   if vim.api.nvim_get_option_value('filetype', { buf = current_buffer }) == 'NvimTree' then
-    if #get_file_buffers() == 0 then
-      vim.api.nvim_set_current_buf(vim.api.nvim_create_buf(false, true))
-    end
-
     require('nvim-tree.api').tree.close()
     return
   end
 
-  local next_buffer = switch_to_adjacent_buffer('next')
-
-  if not next_buffer then
+  if #get_file_buffers() < 2 then
     local api = require('nvim-tree.api')
     if api.tree.is_visible() then
       api.tree.focus()
-    else
-      vim.api.nvim_set_current_buf(vim.api.nvim_create_buf(false, true))
     end
   end
 
