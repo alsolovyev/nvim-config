@@ -27,6 +27,7 @@ local function open()
 
   if vim.bo[buf].buftype ~= 'terminal' then
     vim.cmd.terminal()
+    vim.api.nvim_set_option_value('buflisted', false, { buf = buf })
   end
 
   vim.cmd('startinsert')
