@@ -66,7 +66,9 @@ local function close_buffer()
     return
   end
 
-  if #get_file_buffers() < 2 then
+  local buffer_next = switch_to_adjacent_buffer('prev')
+
+  if not buffer_next then
     local api = require('nvim-tree.api')
     if api.tree.is_visible() then
       api.tree.focus()
