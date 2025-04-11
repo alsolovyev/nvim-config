@@ -2,6 +2,7 @@
 
 require('options')
 require('autocmds')
+require('commands')
 require('plugins')
 require('highlights')
 require('signs')
