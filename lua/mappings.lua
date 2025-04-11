@@ -91,3 +91,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 -- Open URL
 vim.keymap.set('n', 'gx', require 'features.open-url', { desc = 'Open URL', silent = true })
+
+-- Refactor
+vim.keymap.set({'n', 'v'}, '<leader>rs', ':RemoveSpaces<CR>', { desc = 'Remove whitespace/newlines not in quotes (range-aware)', silent = true })
