@@ -4,11 +4,16 @@ local M = { 'neovim/nvim-lspconfig' }
 M.event = 'User FilePost'
 
 M.config = function()
-  -- Add borders to floating windows
-  require('lspconfig.ui.windows').default_options.border = 'rounded'
-  vim.diagnostic.config({ float = { border = 'rounded' } })
-  vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
-  vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
+  vim.diagnostic.config({
+    -- update_in_insert = true,
+    float = {
+      focusable = false,
+      style = 'minimal',
+      border = 'rounded',
+      source = false,
+      header = '',
+    },
+  })
 
   -- Server configurations
   local lspconfig = require('lspconfig')
