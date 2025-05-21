@@ -31,6 +31,10 @@ M.config = function()
       debounce_text_changes = 500
     }
   })
+
+  -- Lua configuration
+  vim.lsp.config('lua_ls', { settings = { Lua = { diagnostics = { globals = { 'vim' } } } } })
+  vim.lsp.enable('lua_ls')
 end
 
 return M
