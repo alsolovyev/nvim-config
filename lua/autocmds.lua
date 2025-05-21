@@ -22,8 +22,14 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   desc = 'Automatically format code before saving buffer',
   group = vim.api.nvim_create_augroup('CodeFormatting', { clear = true }),
   callback = function(args)
-    if vim.bo[args.buf].modified and vim.bo[args.buf].modifiable and not vim.bo[args.buf].binary then
-      require('conform').format({ bufnr = args.buf })
+    local buf = args.buf
+
+    local is_modified = vim.bo[buf].modified
+    local is_modifiable = vim.bo[buf].modifiable
+    local is_binary = vim.bo[buf].binary
+
+    if is_modified and is_modifiable and not is_binary then
+      require('conform').format({ bufnr = buf })
     end
   end
 })
