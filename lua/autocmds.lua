@@ -21,9 +21,9 @@ vim.api.nvim_create_autocmd('TermOpen', {
 vim.api.nvim_create_autocmd('BufWritePre', {
   desc = 'Automatically format code before saving buffer',
   group = vim.api.nvim_create_augroup('CodeFormatting', { clear = true }),
-  callback = function()
+  callback = function(args)
     if vim.bo.modified or vim.bo.modifiable or not vim.bo.binary then
-      vim.lsp.buf.format({ async = false })
+      require('conform').format({ bufnr = args.buf })
     end
   end
 })
