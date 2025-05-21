@@ -35,6 +35,10 @@ M.config = function()
   -- Lua configuration
   vim.lsp.config('lua_ls', { settings = { Lua = { diagnostics = { globals = { 'vim' } } } } })
   vim.lsp.enable('lua_ls')
+
+  -- Python configuration
+  -- vim.lsp.enable('ruff')
+  vim.lsp.enable('pyright')
 end
 
 return M
