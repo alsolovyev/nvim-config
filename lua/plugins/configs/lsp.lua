@@ -22,6 +22,15 @@ M.config = function()
       }
     }
   })
+
+  -- Common configuration
+  vim.lsp.config('*', {
+    capabilities = vim.lsp.protocol.make_client_capabilities(),
+    root_markers = { '.git' },
+    flags = {
+      debounce_text_changes = 500
+    }
+  })
 end
 
 return M
