@@ -1,62 +1,12 @@
--- Gets a list of file buffers
-local function get_file_buffers()
-  local buffers = {}
+local mru = require 'features.mru'
 
-  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-    if vim.bo[buf].buflisted and vim.api.nvim_buf_is_valid(buf) then
-      local buftype = vim.api.nvim_get_option_value('buftype', { buf = buf })
-
-      if buftype ~= 'terminal' then
-        table.insert(buffers, buf)
-      end
-    end
-  end
-
-  return buffers
-end
-
--- Switches to the adjacent buffer
--- @param direction 'next' for the next buffer, 'prev' for the previous buffer
--- @return number | nil
---   Returns the buffer number of the adjacent buffer if successful
---   Returns nil if no adjacent buffer exists or an invalid direction is provided
-local function switch_to_adjacent_buffer(direction)
-  local buffers = get_file_buffers()
-
-  if #buffers == 1 then return nil end
-
-  local current_buffer = vim.api.nvim_get_current_buf()
-  local target_buffer = nil
-
-  for i, buf in ipairs(buffers) do
-    if buf == current_buffer then
-      if direction == 'prev' then
-        target_buffer = (i > 1) and buffers[i - 1] or buffers[#buffers]
-      elseif direction == 'next' then
-        target_buffer = (i < #buffers) and buffers[i + 1] or buffers[1]
-      else
-        vim.notify('Invalid direction. Use `prev` or `next`', vim.log.levels.ERROR)
-        return nil
-      end
-
-      break
-    end
-  end
-
-  if target_buffer and vim.api.nvim_buf_is_loaded(target_buffer) then
-    vim.api.nvim_set_current_buf(target_buffer)
-    return target_buffer
-  end
-
-  return nil
-end
 
 -- Closes the current buffer
 local function close_buffer()
   local current_buffer = vim.api.nvim_get_current_buf()
-  local buffer_type = vim.api.nvim_get_option_value('buftype', { buf = current_buffer })
+  local current_buffer_type = vim.api.nvim_get_option_value('buftype', { buf = current_buffer })
 
-  if buffer_type == 'terminal' or buffer_type == 'prompt' then
+  if current_buffer_type == 'terminal' or current_buffer_type == 'prompt' then
     vim.api.nvim_win_close(vim.api.nvim_get_current_win(), true)
     return
   end
@@ -66,13 +16,20 @@ local function close_buffer()
     return
   end
 
-  local buffer_next = switch_to_adjacent_buffer('prev')
+  local next_buffer = mru.prev(current_buffer)
 
-  if not buffer_next then
-    local api = require('nvim-tree.api')
-    if api.tree.is_visible() then
-      api.tree.focus()
+  if next_buffer then
+    local ok, err = pcall(vim.api.nvim_set_current_buf, next_buffer)
+    if not ok then
+      vim.notify(
+        string.format("buffer: failed to switch to buffer %d: %s", next_buffer, err),
+        vim.log.levels.ERROR
+      )
+      return nil
     end
+  else
+    local api = require('nvim-tree.api')
+    if api.tree.is_visible() then api.tree.focus() end
   end
 
   for _, client in pairs(vim.lsp.get_clients()) do
@@ -82,6 +39,23 @@ local function close_buffer()
   end
 
   vim.api.nvim_buf_delete(current_buffer, { force = true })
+  mru.remove(current_buffer)
+end
+
+local function switch_buffer(direction)
+  local current_buffer = vim.api.nvim_get_current_buf()
+  local to_buffer = mru[direction](current_buffer)
+
+  if to_buffer then
+    local ok, err = pcall(vim.api.nvim_set_current_buf, to_buffer)
+    if not ok then
+      vim.notify(
+        string.format("buffer: failed to switch to buffer %d: %s", to_buffer, err),
+        vim.log.levels.ERROR
+      )
+      return nil
+    end
+  end
 end
 
 vim.api.nvim_create_user_command('Buffer', function(opts)
@@ -90,9 +64,9 @@ vim.api.nvim_create_user_command('Buffer', function(opts)
   if subcommand == 'close' then
     close_buffer()
   elseif subcommand == 'next' or subcommand == 'prev' then
-    switch_to_adjacent_buffer(subcommand)
+    switch_buffer(subcommand)
   else
-    vim.notify("Unknown command. Usage: :Buffer [close|next|prev]", vim.log.levels.ERROR)
+    return vim.notify('', vim.log.levels.ERROR)
   end
 end, {
   nargs = 1,
