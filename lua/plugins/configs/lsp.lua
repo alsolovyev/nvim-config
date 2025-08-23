@@ -37,7 +37,7 @@ M.config = function()
   vim.lsp.enable('lua_ls')
 
   -- Python configuration
-  -- vim.lsp.enable('ruff')
+  vim.lsp.enable('ruff')
   vim.lsp.enable('pyright')
 end
 
