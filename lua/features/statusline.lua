@@ -42,12 +42,13 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'DiagnosticChanged' }, {
 
 
 -- Cursor location
--- local function location()
---   local line = vim.fn.line('.')
---   local col = vim.fn.virtcol('.')
+local function location()
+  local line = vim.fn.line('.')
+  local col = vim.fn.virtcol('.')
 
---   return string.format('%3d:%-2d', line, col)
--- end
+  return string.format("%%#StatuslineLocation#%1d:%-1d%%* ", line, col)
+end
+end
 
 
 -- Nvim modes
@@ -94,7 +95,8 @@ return function()
     '%=',
 
     -- Right
-    mode(),
+    location(),
+    mode()
   }
 
   return table.concat(sections)
