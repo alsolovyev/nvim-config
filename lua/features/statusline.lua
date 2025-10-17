@@ -48,6 +48,12 @@ local function location()
 
   return string.format("%%#StatuslineLocation#%1d:%-1d%%* ", line, col)
 end
+
+-- Filetype / Syntax Name
+local function file_syntax()
+  local ft = vim.bo.filetype
+
+  return string.format("%%#StatuslineLocation#%s%%* ", ft ~= "" and ft or "noft")
 end
 
 
@@ -95,6 +101,7 @@ return function()
     '%=',
 
     -- Right
+    file_syntax(),
     location(),
     mode()
   }

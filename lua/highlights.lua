@@ -65,6 +65,7 @@ vim.api.nvim_set_hl(0, 'StatuslineLspStatus',      { fg = colors.blue           
 vim.api.nvim_set_hl(0, 'StatuslineLspWarning',     { fg = colors.peach                    })
 vim.api.nvim_set_hl(0, 'StatuslineNormalMode',     { fg = colors.base,  bg = colors.blue  })
 vim.api.nvim_set_hl(0, 'StatuslineNormalModeSep',  { fg = colors.blue                     })
+vim.api.nvim_set_hl(0, 'StatuslineLocation',       { fg = colors.overlay0                 })
 vim.api.nvim_set_hl(0, 'StatuslineReplaceMode',    { fg = colors.base,  bg = colors.red   })
 vim.api.nvim_set_hl(0, 'StatuslineReplaceModeSep', { fg = colors.red,   bg = colors.base  })
 vim.api.nvim_set_hl(0, 'StatuslineVisualMode',     { fg = colors.base,  bg = colors.teal  })
