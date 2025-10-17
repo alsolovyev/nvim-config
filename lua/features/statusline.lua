@@ -1,6 +1,6 @@
 -- File name
 -- https://neovim.io/doc/user/options.html#'statusline'
-local file_name = '%#StatuslineFileName#%t %M'
+local file_name = '%#StatuslineFileName#%f %M'
 
 
 -- LSP diagnostics
