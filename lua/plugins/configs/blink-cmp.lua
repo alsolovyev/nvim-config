@@ -8,7 +8,7 @@ M.opts = {
   completion = {
     menu = {
       border = 'rounded',
-      draw = { columns = { { 'label' } } }
+      draw = { columns = { { 'label' }, { 'source_name' } } }
     },
     documentation = { window = { border = 'rounded' } },
   },
