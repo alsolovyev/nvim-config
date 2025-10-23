@@ -2,7 +2,11 @@
 local M = { 'williamboman/mason.nvim' }
 
 M.cmd = { 'Mason', 'MasonInstall', 'MasonUpdate', 'MasonInstallAll' }
-M.config = true
+M.config = {
+  ui = {
+    border = 'rounded'
+  }
+}
 
 return M
 
