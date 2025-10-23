@@ -1,7 +1,8 @@
 -- https://github.com/stevearc/conform.nvim
 local M = { 'stevearc/conform.nvim' }
 
-M.module = 'conform'
+M.event = 'BufWritePre'
+
 M.opts = {
   formatters_by_ft = {
     javascript      = { 'prettierd', 'prettier', stop_after_first = true },
