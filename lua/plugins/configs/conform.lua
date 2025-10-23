@@ -4,8 +4,13 @@ local M = { 'stevearc/conform.nvim' }
 M.module = 'conform'
 M.opts = {
   formatters_by_ft = {
-    python = { 'ruff_fix', 'ruff_format' }
-  }
+    javascript      = { 'prettierd', 'prettier', stop_after_first = true },
+    javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+    typescript      = { 'prettierd', 'prettier', stop_after_first = true },
+    typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+
+    python = { 'ruff_fix', 'ruff_format' },
+  },
 }
 
 return M
