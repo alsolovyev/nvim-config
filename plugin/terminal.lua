@@ -20,7 +20,6 @@ local function open()
     width = width,
     height = height,
     style = 'minimal',
-    border = 'rounded',
     title = { { ' Terminal ', 'NormalFloat' } },
     title_pos = 'center',
   })

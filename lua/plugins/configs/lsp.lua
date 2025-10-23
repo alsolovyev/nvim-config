@@ -9,7 +9,6 @@ M.config = function()
     float = {
       focusable = false,
       style = 'minimal',
-      border = 'rounded',
       source = false,
       header = '',
     },

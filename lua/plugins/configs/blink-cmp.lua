@@ -7,10 +7,8 @@ M.version = '*'
 M.opts = {
   completion = {
     menu = {
-      border = 'rounded',
       draw = { columns = { { 'label' }, { 'source_name' } } }
-    },
-    documentation = { window = { border = 'rounded' } },
+    }
   },
   keymap = {
     preset        = 'none',
@@ -27,7 +25,6 @@ M.opts = {
   },
   signature = {
     enabled = true,
-    window = { border = 'rounded' },
   }
 }
 

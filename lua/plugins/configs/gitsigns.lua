@@ -13,9 +13,6 @@ M.opts = {
     topdelete    = { text = "" },
     untracked    = { text = "▎" },
   },
-  preview_config = {
-    border = 'rounded'
-  }
 }
 
 return M
