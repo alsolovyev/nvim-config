@@ -9,6 +9,8 @@ M.opts = {
     typescript      = { 'prettierd', 'prettier', stop_after_first = true },
     typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
 
+    lua = { 'stylua' },
+
     python = { 'ruff_fix', 'ruff_format' },
   },
 }
