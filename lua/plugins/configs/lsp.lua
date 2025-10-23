@@ -1,7 +1,7 @@
 -- https://github.com/neovim/nvim-lspconfig
 local M = { 'neovim/nvim-lspconfig' }
 
-M.event = 'User FilePost'
+M.event = 'VeryLazy'
 
 M.config = function()
   vim.diagnostic.config({
