@@ -13,6 +13,7 @@ vim.o.scrolloff = 999
 -- vim.o.signcolumn = 'yes'
 vim.o.splitbelow = true
 vim.o.splitright = true
+vim.o.winborder = 'rounded'
 vim.o.wrap = false
 
 -- Statusline
