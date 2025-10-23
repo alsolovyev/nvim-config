@@ -1,7 +1,7 @@
 -- https://github.com/neovim/nvim-lspconfig
 local M = { 'neovim/nvim-lspconfig' }
 
-M.event = 'VeryLazy'
+M.event = 'BufReadPre' 
 
 M.config = function()
   vim.diagnostic.config({
