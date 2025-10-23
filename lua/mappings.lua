@@ -86,6 +86,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action,   { desc = 'Open code actions', buffer = ev.buf, silent = true })
     vim.keymap.set({ 'n', 'v' }, '<leader>cf', require('conform').format, { desc = 'Format a buffer using the attached LSP', buffer = ev.buf, silent = true })
+
+    vim.keymap.set('n', '<leader>oi', function()
+      local ok, _ = pcall(function()
+        vim.lsp.buf.code_action({
+          context = { only = { 'source.organizeImports' } },
+          apply = true,
+        })
+      end)
+
+      if not ok then
+        vim.notify('No organize imports action available for this LSP client', vim.log.levels.INFO)
+      end
+    end, { desc = 'Organize imports (if available)', buffer = ev.buf, silent = true })
   end,
 })
 
