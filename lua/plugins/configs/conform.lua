@@ -14,6 +14,9 @@ M.opts = {
 
     python = { 'ruff_fix', 'ruff_format' },
   },
+  default_format_opts = {
+    lsp_format = 'fallback',
+  },
 }
 
 return M
