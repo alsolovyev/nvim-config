@@ -12,6 +12,8 @@ M.opts = {
 
     lua = { 'stylua' },
 
+    go = { 'popls' },
+
     python = { 'ruff_fix', 'ruff_format' },
   },
   default_format_opts = {
