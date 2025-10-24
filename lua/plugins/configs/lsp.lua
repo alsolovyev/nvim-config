@@ -38,6 +38,8 @@ M.config = function()
   -- Python configuration
   vim.lsp.enable('ruff')
   vim.lsp.enable('pyright')
+
+  vim.lsp.enable('gopls')
 end
 
 return M
