@@ -18,8 +18,8 @@ M.config = function()
         [vim.diagnostic.severity.HINT] = '󰌵',
         [vim.diagnostic.severity.INFO] = '󰋼',
         [vim.diagnostic.severity.WARN] = '',
-      }
-    }
+      },
+    },
   })
 
   -- Common configuration
@@ -27,8 +27,8 @@ M.config = function()
     capabilities = vim.lsp.protocol.make_client_capabilities(),
     root_markers = { '.git' },
     flags = {
-      debounce_text_changes = 500
-    }
+      debounce_text_changes = 500,
+    },
   })
 
   -- Lua configuration
@@ -39,6 +39,7 @@ M.config = function()
   vim.lsp.enable('ruff')
   vim.lsp.enable('pyright')
 
+  -- Golang configuration
   vim.lsp.enable('gopls')
 end
 

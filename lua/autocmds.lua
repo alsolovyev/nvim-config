@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd('TermOpen', {
   callback = function()
     vim.opt_local.number = false
     vim.opt_local.relativenumber = false
-  end
+  end,
 })
 
 -- Automatically trigger code formatting before writing buffer contents
@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     if is_modified and is_modifiable and not is_binary then
       require('conform').format({ bufnr = buf })
     end
-  end
+  end,
 })
 
 -- Automatically organize imports before writing buffer contents for Go files
@@ -49,7 +49,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('HighlightYank', { clear = true }),
   callback = function()
     vim.highlight.on_yank({ timeout = 500 })
-  end
+  end,
 })
 
 -- User event that loads after UIEnter + only if file buf is there
