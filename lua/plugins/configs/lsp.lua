@@ -22,7 +22,7 @@ M.config = function()
     },
   })
 
-  -- Common configuration
+  -- Common
   vim.lsp.config('*', {
     capabilities = vim.lsp.protocol.make_client_capabilities(),
     root_markers = { '.git' },
@@ -31,15 +31,15 @@ M.config = function()
     },
   })
 
-  -- Lua configuration
+  -- Lua
   vim.lsp.config('lua_ls', { settings = { Lua = { diagnostics = { globals = { 'vim' } } } } })
   vim.lsp.enable('lua_ls')
 
-  -- Python configuration
+  -- Python
   vim.lsp.enable('ruff')
   vim.lsp.enable('pyright')
 
-  -- Golang configuration
+  -- Golang
   vim.lsp.enable('gopls')
 
   -- Deno
