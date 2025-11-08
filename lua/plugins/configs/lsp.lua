@@ -41,6 +41,9 @@ M.config = function()
 
   -- Golang configuration
   vim.lsp.enable('gopls')
+
+  -- TypeScript configuration
+  vim.lsp.enable('ts_ls')
 end
 
 return M
