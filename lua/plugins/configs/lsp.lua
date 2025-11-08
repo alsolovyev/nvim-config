@@ -42,7 +42,14 @@ M.config = function()
   -- Golang configuration
   vim.lsp.enable('gopls')
 
-  -- TypeScript configuration
+  -- Deno
+  vim.lsp.enable('denols')
+  vim.lsp.config('denols', {
+    root_markers = { "deno.json" },
+    single_file_support = false,
+  })
+
+  -- TypeScript
   vim.lsp.enable('ts_ls')
 end
 
