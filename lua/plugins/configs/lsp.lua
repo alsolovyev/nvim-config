@@ -51,6 +51,10 @@ M.config = function()
 
   -- TypeScript
   vim.lsp.enable('ts_ls')
+  vim.lsp.config('ts_ls', {
+    root_markers = { "package.json" },
+    single_file_support = false,
+  })
 end
 
 return M
