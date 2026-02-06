@@ -4,7 +4,7 @@ local M = {
 
 local config = {
   ignore_buftype = { 'nofile', 'prompt', 'quickfix' },
-  ignore_filetype = { 'gitcommit', 'neo-tree', 'TelescopePrompt' },
+  ignore_filetype = { 'gitcommit', 'neo-tree', 'TelescopePrompt', 'NvimTree' },
   max_items = 50,
 }
 
