@@ -40,11 +40,11 @@ TSInstall query vim vimdoc c go bash html javascript json lua markdown markdown_
 ```
 
 ```bash
-MasonInstall gopls ruff-lsp typescript-language-server prettier
+MasonInstall lua-language-server gopls ruff pyright vtsls vue-language-server typescript-language-server deno prettierd prettier stylua
 ```
 
-These commands will install required plugins and language servers for various programming
-languages and file types.
+These commands install the LSP servers and formatters used in this config. If you don't use a language,
+you can skip its server.
 
 ## Removal
 
