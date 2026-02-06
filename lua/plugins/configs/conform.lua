@@ -12,7 +12,7 @@ M.opts = {
 
     lua = { 'stylua' },
 
-    go = { 'popls' },
+    go = { 'gopls' },
 
     python = { 'ruff_fix', 'ruff_format' },
   },
