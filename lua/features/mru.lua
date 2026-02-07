@@ -21,9 +21,9 @@ end
 local function is_valid_buf(bufnr)
   if not vim.api.nvim_buf_is_loaded(bufnr) then return false end
   if vim.api.nvim_buf_get_name(bufnr) == '' then return false end
-
-  local buftype = vim.api.nvim_buf_get_option(bufnr, 'buftype')
-  local filetype = vim.api.nvim_buf_get_option(bufnr, 'filetype')
+  
+  local buftype = vim.api.nvim_get_option_value('buftype', { buf = bufnr })
+  local filetype = vim.api.nvim_get_option_value('filetype', { buf = bufnr })
 
   if contains(config.ignore_buftype, buftype) then return false end
   if contains(config.ignore_filetype, filetype) then return false end
