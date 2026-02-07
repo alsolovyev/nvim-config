@@ -21,7 +21,7 @@ end
 local function is_valid_buf(bufnr)
   if not vim.api.nvim_buf_is_loaded(bufnr) then return false end
   if vim.api.nvim_buf_get_name(bufnr) == '' then return false end
-  
+
   local buftype = vim.api.nvim_get_option_value('buftype', { buf = bufnr })
   local filetype = vim.api.nvim_get_option_value('filetype', { buf = bufnr })
 
@@ -60,7 +60,7 @@ function M.next(current_bufnr)
 
   for i, buf in ipairs(M.items) do
     if buf == current_bufnr then
-      return M.items[(i - 2) % #M.items + 1]
+      return M.items[i % #M.items + 1]
     end
   end
 
@@ -73,7 +73,7 @@ function M.prev(current_bufnr)
 
   for i, buf in ipairs(M.items) do
     if buf == current_bufnr then
-      return M.items[(i % #M.items) + 1]
+      return M.items[(i - 2) % #M.items + 1]
     end
   end
 
