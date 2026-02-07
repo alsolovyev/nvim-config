@@ -46,15 +46,17 @@ local function switch_buffer(direction)
   local current_buffer = vim.api.nvim_get_current_buf()
   local to_buffer = mru[direction](current_buffer)
 
-  if to_buffer then
-    local ok, err = pcall(vim.api.nvim_set_current_buf, to_buffer)
-    if not ok then
-      vim.notify(
-        string.format("buffer: failed to switch to buffer %d: %s", to_buffer, err),
-        vim.log.levels.ERROR
-      )
-      return nil
-    end
+  if not to_buffer then
+    vim.notify('No other buffers in MRU list', vim.log.levels.WARN)
+    return
+  end
+
+  local ok, err = pcall(vim.api.nvim_set_current_buf, to_buffer)
+  if not ok then
+    vim.notify(
+      string.format("buffer: failed to switch to buffer %d: %s", to_buffer, err),
+      vim.log.levels.ERROR
+    )
   end
 end
 
@@ -66,7 +68,7 @@ vim.api.nvim_create_user_command('Buffer', function(opts)
   elseif subcommand == 'next' or subcommand == 'prev' then
     switch_buffer(subcommand)
   else
-    return vim.notify('', vim.log.levels.ERROR)
+    vim.notify('Invalid subcommand. Use: close, next, or prev', vim.log.levels.ERROR)
   end
 end, {
   nargs = 1,
