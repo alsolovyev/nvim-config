@@ -5,10 +5,10 @@ M.event = 'BufWritePre'
 
 M.opts = {
   formatters_by_ft = {
-    javascript      = { 'prettierd', 'prettier', stop_after_first = true },
-    javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
-    typescript      = { 'prettierd', 'prettier', stop_after_first = true },
-    typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+    javascript      = { 'oxfmt' },
+    javascriptreact = { 'oxfmt' },
+    typescript      = { 'oxfmt' },
+    typescriptreact = { 'oxfmt' },
 
     lua = { 'stylua' },
 
