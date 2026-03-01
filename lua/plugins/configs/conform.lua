@@ -9,6 +9,8 @@ M.opts = {
     javascriptreact = { 'oxfmt' },
     typescript      = { 'oxfmt' },
     typescriptreact = { 'oxfmt' },
+    json            = { 'oxfmt' },
+    vue             = { 'oxfmt' },
 
     lua = { 'stylua' },
 
