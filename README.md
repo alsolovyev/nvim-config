@@ -40,7 +40,7 @@ TSInstall query vim vimdoc c go bash html javascript json lua markdown markdown_
 ```
 
 ```bash
-MasonInstall lua-language-server gopls ruff pyright vtsls vue-language-server typescript-language-server deno prettierd prettier stylua
+MasonInstall lua-language-server gopls ruff pyright vtsls vue-language-server typescript-language-server deno oxfmt stylua
 ```
 
 These commands install the LSP servers and formatters used in this config. If you don't use a language,
