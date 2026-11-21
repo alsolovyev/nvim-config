@@ -42,7 +42,8 @@ vim.keymap.set('v', '<leader>s',  '<CMD>sort<CR>',   { desc = 'Sort lines in ran
 vim.keymap.set('n', '<leader>rn', '<CMD>Rename<CR>', { desc = 'Rename all occurrences of a word under the cursor' })
 
 -- Terminal
-vim.keymap.set({ 'n', 't' }, '<leader>ft', '<cmd>Terminal Toggle<CR>', { desc = 'Toggle terminal', silent = true })
+vim.keymap.set({ 'n', 't' }, '<leader>ft', '<cmd>Terminal Toggle<CR>',                                                    { desc = 'Toggle terminal',     silent = true })
+vim.keymap.set('n',          '<leader>tt', '<cmd>10split | setlocal winfixheight | execute "terminal" | startinsert<CR>', { desc = 'Open terminal split', silent = true })
 
 -- Telescope
 vim.keymap.set('n', '<leader>fb', ':Telescope buffers<CR>',    { desc = '', silent = true })
