@@ -78,3 +78,15 @@ vim.api.nvim_create_autocmd({ 'UIEnter', 'BufReadPost', 'BufNewFile' }, {
     end
   end,
 })
+
+-- When nvim is started with a directory argument (e.g. `nvim ~/project`), make it the cwd
+vim.api.nvim_create_autocmd('VimEnter', {
+  group = vim.api.nvim_create_augroup('cwd', { clear = true }),
+  desc = 'Cd into directory passed as startup argument',
+  once = true,
+  callback = function(data)
+    if vim.fn.isdirectory(data.file) == 1 then
+      vim.cmd.cd(data.file)
+    end
+  end,
+})
