@@ -7,8 +7,9 @@ vim.keymap.set('',  '§', '<ESC>', { desc = 'Esc' })
 vim.keymap.set('i', '§', '<ESC>', { desc = 'Esc' })
 
 -- Exit insert mode
-vim.keymap.set('i', 'jj', '<ESC>', { desc = 'Exit insert mode' })
-vim.keymap.set('i', 'kk', '<ESC>', { desc = 'Exit insert mode' })
+vim.keymap.set('i', 'jj', '<ESC>',           { desc = 'Exit insert mode' })
+vim.keymap.set('i', 'kk', '<ESC>',           { desc = 'Exit insert mode' })
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { desc = 'Exit terminal mode' })
 
 -- Do not yank
 vim.keymap.set('n', 'x',     '"_x',     { desc = 'Delete character without yanking' })
