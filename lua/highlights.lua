@@ -43,8 +43,8 @@ vim.api.nvim_set_hl(0, 'TelescopeSelection',      { fg = colors.green           
 
 -- nvim-tree
 -- vim.api.nvim_set_hl(0, 'NvimTreeNormal',       {                   bg = colors.mantle            })
-vim.api.nvim_set_hl(0, 'NvimTreeRootFolder',   { fg = colors.base, bg = colors.blue, bold = true  })
-vim.api.nvim_set_hl(0, 'NvimTreeWinSeparator', { fg = colors.base                                 })
+-- vim.api.nvim_set_hl(0, 'NvimTreeRootFolder',   { fg = colors.base, bg = colors.blue, bold = true  })
+-- vim.api.nvim_set_hl(0, 'NvimTreeWinSeparator', { fg = colors.base                                 })
 vim.api.nvim_set_hl(0, 'NvimTreeGitFileNewHL', { fg = colors.green                                })
 vim.api.nvim_set_hl(0, 'NvimTreeGitNewIcon',   { link = 'NvimTreeGitFileNewHL'                    })
 
