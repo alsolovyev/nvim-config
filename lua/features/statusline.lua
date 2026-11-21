@@ -64,13 +64,15 @@ end
 --  - squer left: █, right: █
 --
 local modes = {
-  [''] = { 'V-BLOCK ', 'StatuslineVisualMode' },
-  ['c'] = { 'COMMAND ', 'StatuslineCommandMode' },
-  ['i'] = { 'INSERT ', 'StatuslineInsertMode' },
-  ['n'] = { 'NORMAL ', 'StatuslineNormalMode' },
-  ['R'] = { 'REPLACE ', 'StatuslineReplaceMode' },
-  ['V'] = { 'V-LINE ', 'StatuslineVisualMode' },
-  ['v'] = { 'VISUAL ', 'StatuslineVisualMode' },
+  [''] = { 'V-BLOCK ', 'StatuslineVisualMode'  },
+  ['c']  = { 'COMMAND ', 'StatuslineCommandMode' },
+  ['i']  = { 'INSERT ',  'StatuslineInsertMode'  },
+  ['t']  = { 'INSERT ',  'StatuslineInsertMode'  },
+  ['nt'] = { 'NORMAL ',  'StatuslineNormalMode'  },
+  ['n']  = { 'NORMAL ',  'StatuslineNormalMode'  },
+  ['R']  = { 'REPLACE ', 'StatuslineReplaceMode' },
+  ['V']  = { 'V-LINE ',  'StatuslineVisualMode'  },
+  ['v']  = { 'VISUAL ',  'StatuslineVisualMode'  },
 }
 
 local function mode()
