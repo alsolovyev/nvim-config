@@ -7,8 +7,25 @@ M.version = '*'
 M.opts = {
   completion = {
     menu = {
-      draw = { columns = { { 'label' }, { 'source_name' } } }
-    }
+      draw = {
+        columns = { { 'label', 'label_description', gap = 1 } },
+        components = {
+          label = {
+            width = { fill = true, max = 20 },
+          },
+          label_description = {
+            width = { max = 24 },
+            text = function(ctx)
+              local description = ctx.label_description
+              if description == '' then
+                description = ctx.item.detail or ('[' .. ctx.kind .. ']')
+              end
+              return description:gsub('\n', ' ')
+            end,
+          },
+        },
+      },
+    },
   },
   keymap = {
     preset        = 'none',
