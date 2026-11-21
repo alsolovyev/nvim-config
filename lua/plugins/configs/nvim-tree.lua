@@ -7,7 +7,8 @@ M.opts = {
   -- https://github.com/nvim-tree/nvim-tree.lua/blob/master/doc/nvim-tree-lua.txt
   disable_netrw = true,
   view = {
-    width = 20,
+    adaptive_size = false,
+    width = 30,
   },
   renderer = {
     special_files = {},
